@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flower Project</title>
+  <link rel="stylesheet" href="flower_w_heart.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      height: 100vh;
+      background-color: #000000;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #ffffff;
+      margin-bottom: 100px;
+      z-index: 2;
+    }
+
+    .subtext {
+      font-size: 1.2rem;
+      color: #ffffff;
+      margin-bottom: 40px;
+      max-width: 500px;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid #ff69b4;
+      animation: typing 4s steps(30, end), blink 0.8s step-end infinite;
+      z-index: 2;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      from, to { border-color: transparent }
+      50% { border-color: #ff69b4; }
+    }
+
+    .box-link {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #ff69b4;
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      z-index: 2;
+    }
+
+    .box-link:hover {
+      background-color: #ff1493;
+      transform: scale(1.05);
+    }
+
+    /* 🌸 Bunga dari file lokal */
+    .flower {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background-image: url('img'); /* ← Ubah sesuai path */
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.7;
+      animation: floatDown 12s linear infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes floatDown {
+      0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>HELLO DELPHIA</h1>
+  <div class="subtext">FOR YOU MY FAVORITE GIRL </div>
+  <a href="flower_w_heart.html" class="box-link">Open Here</a>
+
+  <!-- 🌸 Generate Bunga -->
+  <script>
+    const totalFlowers = 20;
+    for (let i = 0; i < totalFlowers; i++) {
+      const flower = document.createElement('div');
+      flower.className = 'flower';
+      flower.style.left = `${Math.random() * 100}%`;
+      flower.style.animationDelay = `${Math.random() * 10}s`;
+      flower.style.animationDuration = `${8 + Math.random() * 8}s`;
+      document.body.appendChild(flower);
+    }
+  </script>
+
+  <script src="flower_w_heart.js"></script>
+</body>
+</html>
